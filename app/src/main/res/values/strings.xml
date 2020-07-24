@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Warmup App Java</string>
+    <string name="recycler_btn">Recycler View</string>
+    <string-array name="counties">
+        <item>United State</item>
+        <item>South Africa</item>
+        <item>Argentina</item>
+        <item>Belgium</item>
+        <item>Canada</item>
+        <item>Romania</item>
+    </string-array>
+</resources>
