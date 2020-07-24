@@ -4,11 +4,14 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -28,11 +31,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public void bind(NewsArticle article) {
             TextView title = itemView.findViewById(R.id.title);
             TextView content = itemView.findViewById(R.id.content);
+            ImageView image = itemView.findViewById(R.id.image);
             title.setText(article.getTitle());
             if (article.getContent() != null) {
                 content.setText(Html.fromHtml(article.getContent()));
             } else if (article.getDescription() != null) {
                 content.setText(Html.fromHtml(article.getDescription()));
+            }
+            if(article.getUrlToImage() != null){
+                Glide.with(view)
+                        .load(article.getUrlToImage())
+                        .into(image);
             }
         }
     }
